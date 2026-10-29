@@ -1,0 +1,22 @@
+import {test,expect} from "@playwright/test"
+test("Learning Dropdown & Radio buttons", async({page})=>{
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    const userName=page.locator("#username")
+    const passWord=page.locator("[type='password']")
+    const signIn=page.locator('#signInBtn')
+    const selectRadio=page.locator(".customradio").nth(1)
+    const blinkText=page.locator("[href*='documents-request']")
+    await userName.fill("rahulshettyacademi")
+    await passWord.fill("Learning@830$3mK2")
+    await selectRadio.click()
+    await page.locator("#okayBtn").click()
+    console.log(await selectRadio.isChecked())
+    await expect(selectRadio).toBeChecked()
+    await page.locator(".form-group select").selectOption("consult")
+    await page.locator("#terms").click()
+    await expect(page.locator("#terms")).toBeChecked()
+    await page.locator("#terms").uncheck()
+    expect(await page.locator("#terms").isChecked()).toBeFalsy()
+    await expect(blinkText).toHaveAttribute("class","blinkingText")
+}
+)

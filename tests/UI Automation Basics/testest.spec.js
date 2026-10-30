@@ -1,5 +1,5 @@
 import {test,expect} from "@playwright/test"
-test.skip("Playwright Actions", async({browser})=>{
+test("Playwright Actions", async({browser})=>{
     const context=await browser.newContext()
     const page=await context.newPage()
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/")

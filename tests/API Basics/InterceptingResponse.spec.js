@@ -1,7 +1,7 @@
 import {test, expect, request} from "@playwright/test"
 const creds = {userEmail:"k.velu93@gmail.com",userPassword:"Raj@1993"}
 const orderPayload = {orders:[{country:"Cuba",productOrderedId:"6960eae1c941646b7a8b3ed3"}]}
-let fakePayLoad= { data: [], message: "No Orders" }
+let fakePayLoad = { data: [], message: "No Orders" }
 let token
 test.beforeAll(async()=>{
     const context=await request.newContext()
@@ -28,5 +28,5 @@ test("No Orders Placed",async({page})=>{
     )
     await page.goto("https://rahulshettyacademy.com/client/#/dashboard/myorders")
     await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*")
-    console.log(await page.locator(".mt-4").textContent());
+    console.log(await page.locator(".mt-4").textContent())
 })

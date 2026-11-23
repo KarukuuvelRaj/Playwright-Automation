@@ -20,7 +20,7 @@ test("No Orders Placed",async({page})=>{
         async route=>{
            const response=await page.request.fetch(route.request())
            let body = JSON.stringify(fakePayLoad)
-           route.fulfill({
+           await route.fulfill({
             body,
             response
            })
